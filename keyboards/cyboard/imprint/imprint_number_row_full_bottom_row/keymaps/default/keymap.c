@@ -14,6 +14,11 @@
 #define HOME_I RALT_T(KC_I)
 #define HOME_O RCTL_T(KC_O)
 
+#define ESC_SYS  LT(SYS, KC_ESC)
+#define BSPC_NAV LT(NAV, KC_BSPC)
+#define SPC_SYM  LT(SYM, KC_SPC)
+#define DEL_NUM  LT(NUM, KC_DEL)
+
 enum layers {
     BASE,
     NAV,
@@ -31,7 +36,7 @@ enum unicode_names {
 
 const uint32_t PROGMEM unicode_map[] = {
     [CHECKMARK] = 0x2705,   // ✅
-    [THUMBS_UP] = 0x1F44D,  // 👍  
+    [THUMBS_UP] = 0x1F44D,  // 👍
     [WAVE]      = 0x1F44B,  // 👋
 };
 
@@ -42,11 +47,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_CAPS, HOME_A,  HOME_R,  HOME_S,  HOME_T,  KC_G,                      KC_M,    HOME_N,  HOME_E,  HOME_I,  HOME_O,  KC_CAPS,
         KC_NO,   KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                      KC_ENT,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_NO,
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   MO(EMOJI),
-        KC_NO,   KC_NO,   KC_ESC,
-        KC_ESC,  KC_BSPC, KC_NO,
+        KC_NO,   KC_NO,   ESC_SYS,
+        ESC_SYS, BSPC_NAV, KC_NO,
         CW_TOGG, KC_NO,   KC_NO,   KC_F23,  CW_TOGG,
-        KC_SPC,  MO(SYM), KC_DEL,
-        KC_DEL,  MO(NUM), KC_TAB
+        SPC_SYM, KC_TAB,  DEL_NUM,
+        DEL_NUM, KC_TAB,  KC_TAB
     ),
     [NAV] = LAYOUT_num_full_bottom_row(
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
@@ -99,14 +104,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [EMOJI] = LAYOUT_num_full_bottom_row(
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______,                   X(WAVE), _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                   UM(WAVE), _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,
         _______, _______, _______,
         _______, _______, _______,
         _______, _______, _______, _______, _______,
         _______, _______, _______,
-        _______, X(THUMBS_UP), X(CHECKMARK)
+        _______, UM(THUMBS_UP), UM(CHECKMARK)
     )
 };
 
@@ -116,16 +121,24 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case HOME_T:
         case HOME_N:
-            return 145;  // Index fingers
+            return 145;
         case HOME_S:
         case HOME_E:
-            return 210;  // Middle fingers
+            return 210;
         case HOME_R:
         case HOME_I:
-            return 240;  // Ring fingers
+            return 240;
         case HOME_A:
         case HOME_O:
-            return 260;  // Pinkies
+            return 260;
+        case ESC_SYS:
+            return 200;
+        case BSPC_NAV:
+            return 170;
+        case SPC_SYM:
+            return 170;
+        case DEL_NUM:
+            return 200;
         default:
             return TAPPING_TERM;
     }
@@ -144,7 +157,26 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case HOME_I:
         case HOME_O:
             return true;
+        case ESC_SYS:
+        case BSPC_NAV:
+        case SPC_SYM:
+        case DEL_NUM:
+            return true;
         default:
             return false;
+    }
+}
+
+// Quick tap term: prevents hold action if key is tapped again within this time
+// Allows for key repeat while preventing accidental modifier activation
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case SPC_SYM:
+            return 120;
+        case BSPC_NAV:
+        case DEL_NUM:
+            return 100;
+        default:
+            return QUICK_TAP_TERM;
     }
 }
