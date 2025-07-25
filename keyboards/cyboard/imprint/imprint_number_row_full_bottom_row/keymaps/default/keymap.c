@@ -14,20 +14,29 @@
 #define HOME_I RALT_T(KC_I)
 #define HOME_O RCTL_T(KC_O)
 
+enum layers {
+    BASE,
+    NAV,
+    SYM,
+    NUM,
+    SYS,
+    EMOJI
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT_num_full_bottom_row(
+    [BASE] = LAYOUT_num_full_bottom_row(
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_NO,   KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_NO,   KC_NO,
         KC_CAPS, HOME_A,  HOME_R,  HOME_S,  HOME_T,  KC_G,                      KC_M,    HOME_N,  HOME_E,  HOME_I,  HOME_O,  KC_CAPS,
         KC_NO,   KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                      KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_NO,   KC_NO,
-        KC_NO,   KC_NO,   KC_NO,   KC_NO,   MO(5),
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   MO(EMOJI),
         KC_NO,   KC_NO,   KC_ESC,
         KC_ESC,  KC_BSPC, KC_NO,
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-        KC_SPC,  MO(2),   KC_DEL,
-        KC_DEL,  MO(3),   KC_SPC
+        KC_SPC,  MO(SYM), KC_DEL,
+        KC_DEL,  MO(NUM), KC_SPC
     ),
-    [1] = LAYOUT_num_full_bottom_row(
+    [NAV] = LAYOUT_num_full_bottom_row(
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, G(KC_X),                   G(KC_X), _______, _______, _______, _______, _______,
         _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, G(KC_C),                   G(KC_C), KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,
@@ -39,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______,
         _______, _______, _______
     ),
-    [2] = LAYOUT_num_full_bottom_row(
+    [SYM] = LAYOUT_num_full_bottom_row(
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
         KC_EXLM, KC_LBRC, KC_QUOT, KC_DQUO, KC_RBRC, KC_QUES,                   _______, _______, _______, _______, _______, _______,
         KC_HASH, KC_CIRC, KC_EQL,  KC_UNDS, KC_DLR,  KC_ASTR,                   _______, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, _______,
@@ -51,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______,
         _______, _______, _______
     ),
-    [3] = LAYOUT_num_full_bottom_row(
+    [NUM] = LAYOUT_num_full_bottom_row(
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                   _______, KC_7,    KC_8,    KC_9,    _______, _______,
         _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______,                   _______, KC_4,    KC_5,    KC_6,    _______, _______,
@@ -63,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______,
         _______, KC_0,    _______
     ),
-    [4] = LAYOUT_num_full_bottom_row(
+    [SYS] = LAYOUT_num_full_bottom_row(
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                   _______, G(C(KC_Q)), _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                   _______, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, _______,
@@ -75,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______,
         _______, _______, _______
     ),
-    [5] = LAYOUT_num_full_bottom_row(
+    [EMOJI] = LAYOUT_num_full_bottom_row(
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
