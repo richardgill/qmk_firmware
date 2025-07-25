@@ -25,7 +25,8 @@ enum layers {
     SYM,
     NUM,
     SYS,
-    EMOJI
+    EMOJI,
+    MOUSE
 };
 
 enum unicode_names {
@@ -112,6 +113,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______,
         _______, _______, _______,
         _______, UM(THUMBS_UP), UM(CHECKMARK)
+    ),
+    [MOUSE] = LAYOUT_num_full_bottom_row(
+        _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______,
+        _______, _______, _______,
+        _______, _______, _______,
+        _______, _______, _______, _______, _______,
+        KC_BTN1, KC_BTN3, KC_BTN2,
+        KC_BTN2, KC_BTN3, KC_BTN3
     )
 };
 
@@ -179,4 +192,10 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
         default:
             return QUICK_TAP_TERM;
     }
+}
+
+// Initialize pointing device with auto mouse feature
+void pointing_device_init_user(void) {
+    set_auto_mouse_layer(MOUSE);
+    set_auto_mouse_enable(true);
 }

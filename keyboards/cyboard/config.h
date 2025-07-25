@@ -53,3 +53,9 @@
 #define POINTING_DEVICE_TASK_THROTTLE_MS 1
 #define CHARYBDIS_CONFIG_DUAL_SYNC
 #define PMW3360_LIFTOFF_DISTANCE 0x02 //default 0x02, 2mm liftoff distance
+
+#define MOUSEKEY_ENABLE
+#define POINTING_DEVICE_AUTO_MOUSE_ENABLE
+#define AUTO_MOUSE_TIME 650     // Time layer remains active after activation (ms)
+#define AUTO_MOUSE_DELAY 200    // Lockout time after non-mouse key press (ms)
+#define AUTO_MOUSE_THRESHOLD 10 // Mouse movement required to switch layers
