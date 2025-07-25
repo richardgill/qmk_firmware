@@ -89,19 +89,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
+// Tapping term: how long to hold a key before it becomes a modifier instead of typing the letter
+// Matches ZMK config: Index 145ms, Middle 210ms, Ring 240ms, Pinky 260ms
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case HOME_A:
-        case HOME_O:
-            return TAPPING_TERM + 50;
+        case HOME_T:
+        case HOME_N:
+            return 145;  // Index fingers
+        case HOME_S:
+        case HOME_E:
+            return 210;  // Middle fingers
         case HOME_R:
         case HOME_I:
-            return TAPPING_TERM + 25;
+            return 240;  // Ring fingers
+        case HOME_A:
+        case HOME_O:
+            return 260;  // Pinkies
         default:
             return TAPPING_TERM;
     }
 }
 
+// Hold on other key press: immediately activates modifier when another key is pressed
+// Enables all home row mods to trigger instantly when typing combos (like Ctrl+C)
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case HOME_A:
