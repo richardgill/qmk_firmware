@@ -99,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 // Tapping term: how long to hold a key before it becomes a modifier instead of typing the letter
-// Matches ZMK config: Index 145ms, Middle 210ms, Ring 240ms, Pinky 260ms
+// Index 145ms, Middle 210ms, Ring 240ms, Pinky 260ms
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case HOME_T:
