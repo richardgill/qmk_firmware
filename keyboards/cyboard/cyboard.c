@@ -242,35 +242,8 @@ static void pointing_device_task_charybdis(report_mouse_t* mouse_report, bool is
 }
 
 report_mouse_t pointing_device_task_combined_kb(report_mouse_t left_report, report_mouse_t right_report) {
-    static int16_t scroll_buffer_x = 0;
-    static int16_t scroll_buffer_y = 0;
-    
-    // Always treat left trackball as scroll wheel
-#ifdef CHARYBDIS_DRAGSCROLL_REVERSE_X
-    scroll_buffer_x -= left_report.x;
-#else
-    scroll_buffer_x += left_report.x;
-#endif
-#ifdef CHARYBDIS_DRAGSCROLL_REVERSE_Y
-    scroll_buffer_y -= left_report.y;
-#else
-    scroll_buffer_y += left_report.y;
-#endif
-    left_report.x = 0;
-    left_report.y = 0;
-    
-    if (abs(scroll_buffer_x) > CHARYBDIS_DRAGSCROLL_BUFFER_SIZE) {
-        left_report.h = scroll_buffer_x > 0 ? 1 : -1;
-        scroll_buffer_x = 0;
-    }
-    if (abs(scroll_buffer_y) > CHARYBDIS_DRAGSCROLL_BUFFER_SIZE) {
-        left_report.v = scroll_buffer_y > 0 ? 1 : -1;
-        scroll_buffer_y = 0;
-    }
-    
-    // Right trackball continues to work normally (with optional dragscroll mode)
-    pointing_device_task_charybdis(&right_report, false);
-    
+        pointing_device_task_charybdis(&left_report, true);
+        pointing_device_task_charybdis(&right_report, false);
     return pointing_device_combine_reports(left_report, right_report);
 }
 
