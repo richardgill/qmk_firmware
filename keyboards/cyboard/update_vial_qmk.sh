@@ -7,9 +7,10 @@ TEMP_DIR=$(mktemp -d)
 echo "Cloning vial-qmk repository..."
 git clone https://github.com/Cyboard-DigitalTailor/vial-qmk.git "$TEMP_DIR/vial-qmk"
 
-# Copy cyboard directory from this repo to vial-qmk
-echo "Copying cyboard directory..."
-cp -r keyboards/cyboard "$TEMP_DIR/vial-qmk/keyboards/"
+# Copy cyboard directory from vial-qmk to this repo
+echo "Copying cyboard directory from vial-qmk..."
+cp -r "$TEMP_DIR/vial-qmk/keyboards/cyboard" keyboards/
 
-echo "Done! Vial QMK cloned to: $TEMP_DIR/vial-qmk"
-echo "Cyboard directory copied to: $TEMP_DIR/vial-qmk/keyboards/cyboard"
+echo "Done! Cyboard directory copied from vial-qmk to local qmk_firmware"
+echo "Source: $TEMP_DIR/vial-qmk/keyboards/cyboard"
+echo "Destination: keyboards/cyboard"
