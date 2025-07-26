@@ -199,3 +199,8 @@ void pointing_device_init_user(void) {
     set_auto_mouse_layer(MOUSE);
     set_auto_mouse_enable(true);
 }
+
+// Initialize keyboard - enable left dragscroll on startup
+void keyboard_post_init_user(void) {
+    charybdis_set_pointer_dragscroll_enabled(true, true);
+}
