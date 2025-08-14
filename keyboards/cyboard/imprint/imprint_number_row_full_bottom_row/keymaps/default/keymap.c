@@ -81,12 +81,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO, KC_NO, KC_NO
     ),
     [SYM] = LAYOUT_num_full_bottom_row(
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                               KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_EXLM, KC_LBRC, KC_QUOT, KC_DQUO, KC_RBRC, KC_QUES,                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_NO, KC_GRV, KC_LPRN, KC_RPRN, KC_NO, KC_NO,                               KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_EXLM, KC_LCBR, KC_QUOT, KC_DQUO, KC_RCBR, KC_QUES,                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
         KC_HASH, KC_CIRC, KC_EQL,  KC_UNDS, KC_DLR,  KC_ASTR,                   KC_NO, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, KC_NO,
         KC_AT,   KC_LT,   KC_PIPE, KC_MINS, KC_GT,   KC_SLSH,                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
 
-        KC_TILD, KC_AMPR, KC_LPRN, KC_RPRN, KC_PLUS,
+        KC_TILD, KC_AMPR, KC_LBRC, KC_RBRC, KC_PLUS,
 
         /* Top left thumb cluster  */
         KC_BSLS, KC_DOT, KC_NO,
@@ -101,9 +101,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [NUM] = LAYOUT_num_full_bottom_row(
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_7,    KC_8,    KC_9,    KC_NO, KC_NO,
-        KC_NO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,                   KC_NO, KC_4,    KC_5,    KC_6,    KC_NO, KC_NO,
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_1,    KC_2,    KC_3,    KC_NO, KC_NO,
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_7,  KC_8,  KC_9,  KC_NO, KC_NO,
+        KC_NO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,           KC_NO, KC_4,  KC_5,  KC_6,  KC_NO, KC_NO,
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_1,  KC_2,  KC_3,  KC_NO, KC_NO,
 
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
 
@@ -116,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         /* Bottom left thumb cluster row */
         KC_NO, KC_NO, KC_NO,
         /* Bottom right thumb cluster row */
-        KC_NO, KC_0,    KC_NO
+        KC_NO, KC_NO, KC_0
     ),
     [SYS] = LAYOUT_num_full_bottom_row(
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
@@ -159,7 +159,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [MOUSE] = LAYOUT_num_full_bottom_row(
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_NO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,           KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
 
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
