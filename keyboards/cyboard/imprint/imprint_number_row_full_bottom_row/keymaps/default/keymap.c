@@ -62,9 +62,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         CW_TOGG, KC_TAB,  SPC_SYM
     ),
     [NAV] = LAYOUT_num_full_bottom_row(
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, G(KC_X),                   G(KC_X), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_NO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, G(KC_C),                   G(KC_C), KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_NO,
+        KC_NO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, G(KC_C),           G(KC_C), KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_NO,
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, G(KC_V),                   G(KC_V), KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,
 
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
