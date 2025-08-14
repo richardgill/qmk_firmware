@@ -70,6 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______,
 
         /* Top left thumb cluster  */
+        /* Bottom right thumb cluster row */
         _______, _______, _______,
         /* Top right thumb cluster  */
         _______, _______, _______,
