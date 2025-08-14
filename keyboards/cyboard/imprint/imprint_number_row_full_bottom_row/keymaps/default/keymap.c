@@ -218,7 +218,6 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case HOME_E:
         case HOME_I:
         case HOME_O:
-            return true;
         case ESC_SYS:
         case BSPC_NAV:
         case SPC_SYM:
