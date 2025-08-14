@@ -233,10 +233,10 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case SPC_SYM:
-            return 120;
+            return 170;
         case BSPC_NAV:
         case DEL_NUM:
-            return 100;
+            return 180;
         default:
             return QUICK_TAP_TERM;
     }
@@ -303,8 +303,8 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
         case HOME_E:
         case HOME_I:
         case HOME_O:
-            // Use the default opposite hands rule for home row mods
-            return get_chordal_hold_default(tap_hold_record, other_record);
+            // Disable chordal hold for home row mods - rely on Flow Tap timing instead
+            return false;  // Always tap for home row mods to prevent accidental holds
 
         // Layer taps - never use chordial hold
         case ESC_SYS:
