@@ -66,11 +66,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, G(KC_X),                   G(KC_X), _______, _______, _______, _______, _______,
         _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, G(KC_C),                   G(KC_C), KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,
         _______, _______, _______, _______, _______, G(KC_V),                   G(KC_V), KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______,
+
         _______, _______, _______, _______, _______,
+
+        /* Top left thumb cluster  */
         _______, _______, _______,
+        /* Top right thumb cluster  */
         _______, _______, _______,
+        /* Bottom row right side */
         _______, _______, _______, _______, _______,
+        /* Bottom left thumb cluster row */
         _______, _______, _______,
+        /* Bottom right thumb cluster row */
         _______, _______, _______
     ),
     [SYM] = LAYOUT_num_full_bottom_row(
@@ -78,11 +85,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_EXLM, KC_LBRC, KC_QUOT, KC_DQUO, KC_RBRC, KC_QUES,                   _______, _______, _______, _______, _______, _______,
         KC_HASH, KC_CIRC, KC_EQL,  KC_UNDS, KC_DLR,  KC_ASTR,                   _______, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, _______,
         KC_AT,   KC_LT,   KC_PIPE, KC_MINS, KC_GT,   KC_SLSH,                   _______, _______, _______, _______, _______, _______,
+
         KC_TILD, KC_AMPR, KC_LPRN, KC_RPRN, KC_PLUS,
+
+        /* Top left thumb cluster  */
         KC_PERC, KC_COLN, _______,
+        /* Top right thumb cluster  */
         _______, KC_BSLS, KC_DOT,
+        /* Bottom row right side */
         KC_GRV,  KC_SCLN, _______, _______, _______,
+        /* Bottom left thumb cluster row */
         _______, _______, _______,
+        /* Bottom right thumb cluster row */
         _______, _______, _______
     ),
     [NUM] = LAYOUT_num_full_bottom_row(
@@ -90,11 +104,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______,                   _______, KC_7,    KC_8,    KC_9,    _______, _______,
         _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______,                   _______, KC_4,    KC_5,    KC_6,    _______, _______,
         _______, _______, _______, _______, _______, _______,                   _______, KC_1,    KC_2,    KC_3,    _______, _______,
+
         _______, _______, _______, _______, _______,
+
+        /* Top left thumb cluster  */
         _______, _______, _______,
+        /* Top right thumb cluster  */
         _______, _______, _______,
+        /* Bottom row right side */
         _______, _______, _______, _______, _______,
+        /* Bottom left thumb cluster row */
         _______, _______, _______,
+        /* Bottom right thumb cluster row */
         _______, KC_0,    _______
     ),
     [SYS] = LAYOUT_num_full_bottom_row(
@@ -102,11 +123,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______,                   _______, G(C(KC_Q)), _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                   _______, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, _______,
         _______, _______, _______, _______, _______, _______,                   _______, KC_VOLD, _______, _______, KC_VOLU, _______,
+
         _______, _______, _______, _______, _______,
+
+        /* Top left thumb cluster  */
         _______, _______, _______,
+        /* Top right thumb cluster  */
         _______, _______, _______,
+        /* Bottom row right side */
         _______, _______, _______, _______, _______,
+        /* Bottom left thumb cluster row */
         _______, _______, _______,
+        /* Bottom right thumb cluster row */
         _______, _______, _______
     ),
     [EMOJI] = LAYOUT_num_full_bottom_row(
@@ -114,11 +142,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                   UM(WAVE), _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+
         _______, _______, _______, _______, _______,
+
+        /* Top left thumb cluster  */
         _______, _______, _______,
+        /* Top right thumb cluster  */
         _______, _______, _______,
+        /* Bottom row right side */
         _______, _______, _______, _______, _______,
+        /* Bottom left thumb cluster row */
         _______, _______, _______,
+        /* Bottom right thumb cluster row */
         _______, UM(THUMBS_UP), UM(CHECKMARK)
     ),
     [MOUSE] = LAYOUT_num_full_bottom_row(
@@ -126,11 +161,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+
         _______, _______, _______, _______, _______,
+
+        /* Top left thumb cluster  */
         _______, _______, _______,
+        /* Top right thumb cluster  */
         _______, _______, _______,
+        /* Bottom row right side */
         _______, _______, _______, _______, _______,
+        /* Bottom left thumb cluster row */
         KC_BTN1, KC_BTN3, KC_BTN2,
+        /* Bottom right thumb cluster row */
         KC_BTN2, KC_BTN3, KC_BTN3
     )
 };
