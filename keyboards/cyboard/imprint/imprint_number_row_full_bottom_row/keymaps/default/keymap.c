@@ -252,3 +252,71 @@ void pointing_device_init_user(void) {
 void keyboard_post_init_user(void) {
     charybdis_set_pointer_dragscroll_enabled(true, true);
 }
+
+// Flow Tap configuration - only apply to home row mods, not layer taps
+bool is_flow_tap_key(uint16_t keycode) {
+    switch (keycode) {
+        // Home row mods - enable flow tap for these
+        case HOME_A:
+        case HOME_R:
+        case HOME_S:
+        case HOME_T:
+        case HOME_N:
+        case HOME_E:
+        case HOME_I:
+        case HOME_O:
+            return true;
+        // Layer taps - disable flow tap so they work reliably
+        case ESC_SYS:
+        case BSPC_NAV:
+        case SPC_SYM:
+        case DEL_NUM:
+            return false;
+        default:
+            // For regular keys, check if they're in the main typing area
+            if ((get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) != 0) {
+                return false; // Disable Flow Tap on hotkeys
+            }
+            switch (keycode) {
+                case KC_A ... KC_Z:
+                case KC_DOT:
+                case KC_COMM:
+                case KC_SCLN:
+                case KC_SLSH:
+                case KC_SPC:
+                    return true;
+            }
+            return false;
+    }
+}
+
+// Chordal Hold configuration - only apply opposite-hands rule to home row mods
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+                      uint16_t other_keycode, keyrecord_t* other_record) {
+    // Only apply chordal hold (opposite hands rule) to home row mods
+    switch (tap_hold_keycode) {
+        case HOME_A:
+        case HOME_R:
+        case HOME_S:
+        case HOME_T:
+        case HOME_N:
+        case HOME_E:
+        case HOME_I:
+        case HOME_O:
+            // Use the default opposite hands rule for home row mods
+            return get_chordal_hold_default(tap_hold_record, other_record);
+
+        // Layer taps - never use chordial hold
+        case ESC_SYS:
+        case BSPC_NAV:
+        case SPC_SYM:
+        case DEL_NUM:
+            return true;
+
+        default:
+            return true;  // disable for everything else
+    }
+}
+
+
+
