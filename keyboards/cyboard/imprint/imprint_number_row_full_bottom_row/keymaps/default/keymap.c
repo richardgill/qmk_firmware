@@ -4,15 +4,15 @@
 
 #include QMK_KEYBOARD_H
 
-#define HOME_A LCTL_T(KC_A)
+#define HOME_A LGUI_T(KC_A)
 #define HOME_R LALT_T(KC_R)
-#define HOME_S LGUI_T(KC_S)
+#define HOME_S LCTL_T(KC_S)
 #define HOME_T LSFT_T(KC_T)
 
 #define HOME_N RSFT_T(KC_N)
-#define HOME_E RGUI_T(KC_E)
+#define HOME_E RCTL_T(KC_E)
 #define HOME_I RALT_T(KC_I)
-#define HOME_O RCTL_T(KC_O)
+#define HOME_O RGUI_T(KC_O)
 
 #define ESC_SYS  LT(SYS, KC_ESC)
 #define BSPC_NAV LT(NAV, KC_BSPC)
@@ -50,15 +50,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   MO(EMOJI),
 
-        /* top left thumb cluster  */
+        /* Top left thumb cluster  */
         ESC_SYS, KC_NO, KC_NO,
-        /* top right thumb cluster  */
+        /* Top right thumb cluster  */
         KC_NO, SPC_SYM, KC_ENTER,
         /* Bottom row right side */
         KC_F23, KC_NO,   KC_NO,   KC_NO,  KC_NO,
-        /* bottom left thumb cluster row */
+        /* Bottom left thumb cluster row */
         BSPC_NAV, DEL_NUM, CW_TOGG,
-        /* bottom right thumb cluster row */
+        /* Bottom right thumb cluster row */
         CW_TOGG, KC_TAB,  SPC_SYM
     ),
     [NAV] = LAYOUT_num_full_bottom_row(
