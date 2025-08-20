@@ -13,6 +13,6 @@
 #define PERMISSIVE_HOLD
 // Only use PERMISSIVE_HOLD on opposite hands
 #define CHORDAL_HOLD
-// #define FLOW_TAP_TERM 180
+// #define FLOW_TAP_TERM 130
 
 #define UNICODEMAP_SELECTED_MODES UNICODE_MODE_MACOS
