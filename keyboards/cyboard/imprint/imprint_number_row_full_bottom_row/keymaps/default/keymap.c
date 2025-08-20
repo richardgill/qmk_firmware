@@ -225,28 +225,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
-// Hold on other key press: immediately activates modifier when another key is pressed
-// Enables all home row mods to trigger instantly when typing combos (like Ctrl+C)
-/* bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) { */
-/*     switch (keycode) { */
-/*         case HOME_A: */
-/*         case HOME_R: */
-/*         case HOME_S: */
-/*         case HOME_T: */
-/*         case HOME_N: */
-/*         case HOME_E: */
-/*         case HOME_I: */
-/*         case HOME_O: */
-/*         case ESC_SYS: */
-/*         case BSPC_NAV: */
-/*         case SPC_SYM: */
-/*         case DEL_NUM: */
-/*             return true; */
-/*         default: */
-/*             return false; */
-/*     } */
-/* } */
-
 // Quick tap term: prevents hold action if key is tapped again within this time
 // Allows for key repeat while preventing accidental modifier activation
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
