@@ -36,10 +36,31 @@ enum unicode_names {
 };
 
 const uint32_t PROGMEM unicode_map[] = {
-    [CHECKMARK] = 0x2705,   // ✅
+    [CHECKMARK] = 0x2714,   // ✔
     [THUMBS_UP] = 0x1F44D,  // 👍
     [WAVE]      = 0x1F44B,  // 👋
 };
+
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT_num_full_bottom_row(
+        'L', 'L', 'L', 'L', 'L', 'L',                     'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',                     'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',                     'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',                     'R', 'R', 'R', 'R', 'R', 'R',
+
+        'L', 'L', 'L', 'L', 'L',
+
+        /* Top left thumb cluster */
+        'L', 'L', 'L',
+        /* Top right thumb cluster */
+        'R', 'R', 'R',
+        /* Bottom row right side */
+        'R', 'R', 'R', 'R', 'R',
+        /* Bottom left thumb cluster row */
+        'L', 'L', 'L',
+        /* Bottom right thumb cluster row */
+        'R', 'R', 'R'
+    );
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_num_full_bottom_row(
@@ -177,30 +198,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
-// Tapping term: how long to hold a key before it becomes a modifier instead of typing the letter
-// Index 145ms, Middle 210ms, Ring 240ms, Pinky 260ms
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case HOME_T:
         case HOME_N:
-            return 145;
+            return TAPPING_TERM - 55;
         case HOME_S:
         case HOME_E:
-            return 210;
+            return TAPPING_TERM + 10;
         case HOME_R:
         case HOME_I:
-            return 240;
+            return TAPPING_TERM + 40;
         case HOME_A:
         case HOME_O:
-            return 260;
+            return TAPPING_TERM + 60;
         case ESC_SYS:
-            return 200;
+            return TAPPING_TERM;
         case BSPC_NAV:
-            return 170;
+            return TAPPING_TERM - 30;
         case SPC_SYM:
-            return 170;
+            return TAPPING_TERM - 30;
         case DEL_NUM:
-            return 200;
+            return TAPPING_TERM;
         default:
             return TAPPING_TERM;
     }
@@ -208,25 +227,25 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 // Hold on other key press: immediately activates modifier when another key is pressed
 // Enables all home row mods to trigger instantly when typing combos (like Ctrl+C)
-bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case HOME_A:
-        case HOME_R:
-        case HOME_S:
-        case HOME_T:
-        case HOME_N:
-        case HOME_E:
-        case HOME_I:
-        case HOME_O:
-        case ESC_SYS:
-        case BSPC_NAV:
-        case SPC_SYM:
-        case DEL_NUM:
-            return true;
-        default:
-            return false;
-    }
-}
+/* bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) { */
+/*     switch (keycode) { */
+/*         case HOME_A: */
+/*         case HOME_R: */
+/*         case HOME_S: */
+/*         case HOME_T: */
+/*         case HOME_N: */
+/*         case HOME_E: */
+/*         case HOME_I: */
+/*         case HOME_O: */
+/*         case ESC_SYS: */
+/*         case BSPC_NAV: */
+/*         case SPC_SYM: */
+/*         case DEL_NUM: */
+/*             return true; */
+/*         default: */
+/*             return false; */
+/*     } */
+/* } */
 
 // Quick tap term: prevents hold action if key is tapped again within this time
 // Allows for key repeat while preventing accidental modifier activation
@@ -254,67 +273,49 @@ void keyboard_post_init_user(void) {
 }
 
 // Flow Tap configuration - only apply to home row mods, not layer taps
-bool is_flow_tap_key(uint16_t keycode) {
-    switch (keycode) {
-        // Home row mods - enable flow tap for these
-        case HOME_A:
-        case HOME_R:
-        case HOME_S:
-        case HOME_T:
-        case HOME_N:
-        case HOME_E:
-        case HOME_I:
-        case HOME_O:
-            return true;
-        // Layer taps - disable flow tap so they work reliably
-        case ESC_SYS:
-        case BSPC_NAV:
-        case SPC_SYM:
-        case DEL_NUM:
-            return false;
-        default:
-            // For regular keys, check if they're in the main typing area
-            if ((get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) != 0) {
-                return false; // Disable Flow Tap on hotkeys
-            }
-            switch (keycode) {
-                case KC_A ... KC_Z:
-                case KC_DOT:
-                case KC_COMM:
-                case KC_SCLN:
-                case KC_SLSH:
-                case KC_SPC:
-                    return true;
-            }
-            return false;
-    }
-}
+/* bool is_flow_tap_key(uint16_t keycode) { */
+/*     switch (keycode) { */
+/*         // Home row mods - enable flow tap for these */
+/*         case HOME_A: */
+/*         case HOME_R: */
+/*         case HOME_S: */
+/*         case HOME_T: */
+/*         case HOME_N: */
+/*         case HOME_E: */
+/*         case HOME_I: */
+/*         case HOME_O: */
+/*             return false; */
+/*         // Layer taps - disable flow tap so they work reliably */
+/*         case ESC_SYS: */
+/*         case BSPC_NAV: */
+/*         case SPC_SYM: */
+/*         case DEL_NUM: */
+/*             return false; */
+/*         default: */
+/*             // For regular keys, check if they're in the main typing area */
+/*             if ((get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) != 0) { */
+/*                 return false; // Disable Flow Tap on hotkeys */
+/*             } */
+/*             switch (keycode) { */
+/*                 case KC_A ... KC_Z: */
+/*                 case KC_DOT: */
+/*                 case KC_COMM: */
+/*                 case KC_SCLN: */
+/*                 case KC_SLSH: */
+/*                 case KC_SPC: */
+/*                     return false; */
+/*             } */
+/*             return false; */
+/*     } */
+/* } */
 
-// Chordal Hold configuration - only apply opposite-hands rule to home row mods
 bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
                       uint16_t other_keycode, keyrecord_t* other_record) {
-    // Only apply chordal hold (opposite hands rule) to home row mods
     switch (tap_hold_keycode) {
-        case HOME_A:
-        case HOME_R:
-        case HOME_S:
-        case HOME_T:
-        case HOME_N:
-        case HOME_E:
-        case HOME_I:
-        case HOME_O:
-            // Disable chordal hold for home row mods - rely on Flow Tap timing instead
-            return false;  // Always tap for home row mods to prevent accidental holds
-
-        // Layer taps - never use chordial hold
-        case ESC_SYS:
         case BSPC_NAV:
-        case SPC_SYM:
-        case DEL_NUM:
-            return true;
-
+            return true;  // allow same hand permissive holds since copy and paste are same hands
         default:
-            return true;  // disable for everything else
+            return get_chordal_hold_default(tap_hold_record, other_record);  // Use default opposite-hands rule for everything else
     }
 }
 
