@@ -248,6 +248,11 @@ void pointing_device_init_user(void) {
 // Initialize keyboard - enable left dragscroll on startup
 void keyboard_post_init_user(void) {
     charybdis_set_pointer_dragscroll_enabled(true, true);
+
+    // Set different DPI for left and right trackballs
+    charybdis_cycle_pointer_default_dpi(true, true);  // Left up once
+
+    charybdis_cycle_pointer_default_dpi(true, false); // Right up once
 }
 
 // Flow Tap configuration - only apply to home row mods, not layer taps
