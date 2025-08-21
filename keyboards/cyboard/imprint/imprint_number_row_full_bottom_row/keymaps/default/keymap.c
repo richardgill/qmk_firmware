@@ -36,7 +36,7 @@ enum unicode_names {
 };
 
 const uint32_t PROGMEM unicode_map[] = {
-    [CHECKMARK] = 0x2714,   // ✔
+    [CHECKMARK] = 0x2705,   // ✅
     [THUMBS_UP] = 0x1F44D,  // 👍
     [WAVE]      = 0x1F44B,  // 👋
 };
@@ -162,7 +162,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     UM(WAVE), KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     UM(CHECKMARK), KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
 
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
 
@@ -171,7 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         /* Top right thumb cluster  */
         KC_NO, KC_NO, KC_NO,
         /* Bottom row right side */
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        UM(CHECKMARK), KC_NO, KC_NO, KC_NO, KC_NO,
         /* Bottom left thumb cluster row */
         KC_NO, KC_NO, KC_NO,
         /* Bottom right thumb cluster row */
