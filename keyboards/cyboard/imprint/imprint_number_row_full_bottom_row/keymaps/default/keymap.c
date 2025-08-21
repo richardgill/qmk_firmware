@@ -229,13 +229,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // Allows for key repeat while preventing accidental modifier activation
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case SPC_SYM:
-            return 170;
-        case BSPC_NAV:
-        case DEL_NUM:
-            return 180;
         default:
-            return QUICK_TAP_TERM;
+            return RICH_QUICK_TAP_TERM;
     }
 }
 

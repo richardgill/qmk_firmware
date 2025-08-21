@@ -7,7 +7,11 @@
 // All other tapping terms are defined relative to this
 #define TAPPING_TERM 150
 #define TAPPING_TERM_PER_KEY
+// #define QUICK_TAP_TERM 200
 #define QUICK_TAP_TERM_PER_KEY
+
+// Custom quick tap term base value
+#define RICH_QUICK_TAP_TERM 210
 
 // If a key is being held before and after another key is tapped, assume it was intentionally a hold
 #define PERMISSIVE_HOLD
