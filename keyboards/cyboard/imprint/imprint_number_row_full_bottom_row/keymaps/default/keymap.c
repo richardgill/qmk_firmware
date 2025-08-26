@@ -18,6 +18,7 @@
 
 #define ESC_SYS  LT(SYS, KC_ESC)
 #define BSPC_NAV LT(NAV, KC_BSPC)
+#define BTN3_NAV LT(NAV, KC_BTN3)
 #define SPC_SYM  LT(SYM, KC_SPC)
 #define DEL_NUM  LT(NUM, KC_DEL)
 
@@ -236,7 +237,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         /* Bottom row right side */
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
         /* Bottom left thumb cluster row */
-        KC_BTN3, KC_NO,   KC_NO,
+        BTN3_NAV, KC_NO,   KC_NO,
         /* Bottom right thumb cluster row */
         KC_NO,   KC_BTN3, KC_NO
     )
