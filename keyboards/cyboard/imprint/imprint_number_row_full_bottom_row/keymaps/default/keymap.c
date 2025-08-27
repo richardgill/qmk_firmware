@@ -223,23 +223,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO, KC_NO, UM(THUMBS_UP)
     ),
     [MOUSE] = LAYOUT_num_full_bottom_row(
-        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-        KC_NO,   KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,                     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 
         /* Top left thumb cluster  */
-        KC_BTN1, KC_BTN2, KC_NO,
+        KC_BTN1, KC_BTN2, KC_BTN3,
         /* Top right thumb cluster  */
-        KC_BTN1, KC_BTN2, KC_NO,
+        KC_TRNS, KC_TRNS, KC_TRNS,
         /* Bottom row right side */
-        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         /* Bottom left thumb cluster row */
-        BTN3_NAV, KC_NO,   KC_NO,
+        KC_TRNS, KC_TRNS,   KC_TRNS,
         /* Bottom right thumb cluster row */
-        KC_NO,   KC_BTN3, KC_NO
+        KC_TRNS,   KC_TRNS, KC_TRNS
     )
 };
 
@@ -293,6 +293,10 @@ void keyboard_post_init_user(void) {
     charybdis_cycle_pointer_default_dpi(true, true);  // Left up once
 
     charybdis_cycle_pointer_default_dpi(true, false); // Right up once
+    
+#ifdef RGB_MATRIX_ENABLE
+    rgb_matrix_disable();  // Turn off RGB lighting on startup
+#endif
 }
 
 // Process home row mods to add modifier functionality to layer-tap keys
