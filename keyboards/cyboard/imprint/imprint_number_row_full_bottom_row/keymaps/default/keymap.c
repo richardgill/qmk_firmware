@@ -29,6 +29,7 @@ enum layers {
     NAV,
     SYM,
     NUM,
+    FKEY,
     SYS,
     EMOJI,
     MOUSE
@@ -77,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   MO(EMOJI),
 
         /* Top left thumb cluster  */
-        ESC_SYS, KC_NO, KC_NO,
+        ESC_SYS, KC_NO, MO(FKEY),
         /* Top right thumb cluster  */
         KC_NO, KC_NUBS, KC_ENTER,
         /* Bottom row right side */
@@ -183,6 +184,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO, KC_NO, KC_NO,
         /* Bottom right thumb cluster row */
         KC_NO,   KC_NO,   KC_0
+    ),
+    [FKEY] = LAYOUT_num_full_bottom_row(
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,   KC_F10,  KC_F11,  KC_F12,  KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,   KC_F7,   KC_F8,   KC_F9,   KC_NO,   KC_NO,
+        KC_NO,   KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,                     KC_NO,   KC_F4,   KC_F5,   KC_F6,   KC_NO,   KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,   KC_F1,   KC_F2,   KC_F3,   KC_NO,   KC_NO,
+
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+
+        /* Top left thumb cluster  */
+        KC_NO, KC_NO, KC_NO,
+        /* Top right thumb cluster  */
+        KC_NO, KC_NO, KC_NO,
+        /* Bottom row right side */
+        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        /* Bottom left thumb cluster row */
+        KC_NO, KC_NO, KC_NO,
+        /* Bottom right thumb cluster row */
+        KC_NO,   KC_NO,   KC_NO
     ),
     [SYS] = LAYOUT_num_full_bottom_row(
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,   KC_NO,       KC_NO,   KC_NO,   KC_NO,   KC_NO,
@@ -293,7 +313,7 @@ void keyboard_post_init_user(void) {
     charybdis_cycle_pointer_default_dpi(true, true);  // Left up once
 
     charybdis_cycle_pointer_default_dpi(true, false); // Right up once
-    
+
 #ifdef RGB_MATRIX_ENABLE
     rgb_matrix_disable();  // Turn off RGB lighting on startup
 #endif
