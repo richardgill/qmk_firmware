@@ -8,6 +8,11 @@ This keymap implements Colemak-DH layout with home row mods optimized for typing
 make cyboard/imprint/imprint_number_row_full_bottom_row:default
 ```
 
+## Flashing
+
+1. Hold reset button with pen for 2 seconds
+2. Drag built firmware to USB storage device
+
 ## Home Row Mods
 
 **Left hand (ARST):**
