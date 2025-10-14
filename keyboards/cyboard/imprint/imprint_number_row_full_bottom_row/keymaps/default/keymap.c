@@ -207,8 +207,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [SYS] = LAYOUT_num_full_bottom_row(
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   G(C(KC_Q)),                KC_NO,   KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, KC_NO,
-        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,   KC_VOLD, KC_NO,   KC_NO,   KC_VOLU, KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   G(C(KC_Q)),                KC_NO,   KC_VOLD, KC_NO,   KC_NO,   KC_VOLU, KC_NO,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_NO,   KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, KC_NO,
 
         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
 
