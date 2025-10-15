@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         /* Top left thumb cluster  */
         ESC_SYS, KC_NO, MO(FKEY),
         /* Top right thumb cluster  */
-        KC_NO, KC_F12, KC_ENTER,
+        KC_NO, KC_NUBS, KC_ENTER,
         /* Bottom row right side */
         KC_F23, KC_NO,   KC_NO,   KC_NO,  KC_NO,
         /* Bottom left thumb cluster row */
