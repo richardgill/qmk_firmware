@@ -10,7 +10,7 @@ make cyboard/imprint/imprint_number_row_full_bottom_row:default
 
 ## Flashing
 
-1. Hold reset button with pen for 2 seconds
+1. Tap reset button 2x with pen 
 2. Drag built firmware to USB storage device
 
 ## Home Row Mods

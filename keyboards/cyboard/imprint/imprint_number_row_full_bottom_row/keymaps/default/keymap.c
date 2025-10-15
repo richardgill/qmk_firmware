@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         /* Top left thumb cluster  */
         ESC_SYS, KC_NO, MO(FKEY),
         /* Top right thumb cluster  */
-        KC_NO, KC_NUBS, KC_ENTER,
+        KC_NO, KC_F12, KC_ENTER,
         /* Bottom row right side */
         KC_F23, KC_NO,   KC_NO,   KC_NO,  KC_NO,
         /* Bottom left thumb cluster row */
@@ -428,6 +428,19 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
             return true;  // allow same hand permissive holds since copy and paste are same hands
         default:
             return get_chordal_hold_default(tap_hold_record, other_record);  // Use default opposite-hands rule for everything else
+    }
+}
+
+void raw_hid_receive(uint8_t *data, uint8_t length) {
+    if (length < 1) return;
+
+    switch (data[0]) {
+        case 0x01:
+            set_unicode_input_mode(UNICODE_MODE_MACOS);
+            break;
+        case 0x02:
+            set_unicode_input_mode(UNICODE_MODE_LINUX);
+            break;
     }
 }
 
