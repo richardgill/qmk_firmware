@@ -248,10 +248,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_BTN2, KC_BTN1,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 
         /* Top left thumb cluster  */
-        KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_BTN1, KC_BTN2,
         /* Top right thumb cluster  */
         KC_TRNS, KC_TRNS, KC_TRNS,
         /* Bottom row right side */
