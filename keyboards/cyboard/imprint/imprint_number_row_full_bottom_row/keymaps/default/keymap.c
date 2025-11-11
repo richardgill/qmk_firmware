@@ -294,8 +294,23 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // Allows for key repeat while preventing accidental modifier activation
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case HOME_A:
+        case HOME_R:
+        case HOME_S:
+        case HOME_T:
+        case HOME_N:
+        case HOME_E:
+        case HOME_I:
+        case HOME_O:
+            return 0;
+        case BSPC_NAV:
+        case DEL_NUM:
+            return 200;
+        case SPC_SYM:
+        case ESC_SYS:
+            return 100;
         default:
-            return RICH_QUICK_TAP_TERM;
+            return QUICK_TAP_TERM;
     }
 }
 
@@ -313,6 +328,7 @@ void keyboard_post_init_user(void) {
     charybdis_cycle_pointer_default_dpi(true, true);  // Left up once
 
     charybdis_cycle_pointer_default_dpi(true, false); // Right up once
+    charybdis_cycle_pointer_default_dpi(true, false); // Right up again
 
 #ifdef RGB_MATRIX_ENABLE
     rgb_matrix_disable();  // Turn off RGB lighting on startup
