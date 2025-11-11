@@ -399,7 +399,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;  // Let QMK handle the layer-tap functionality for other keys
 }
-
+// This didn't work well in practice
 // Flow Tap configuration - only apply to home row mods, not layer taps
 /* bool is_flow_tap_key(uint16_t keycode) { */
 /*     switch (keycode) { */
